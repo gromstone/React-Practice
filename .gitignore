@@ -28,6 +28,7 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
+.env
 
 #################
 ## Directories

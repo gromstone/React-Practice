@@ -1,5 +1,5 @@
-import react from 'react';
-import reactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 class Layout extends React.Component {
     render() {
@@ -11,4 +11,4 @@ class Layout extends React.Component {
 
 const app = document.getElementById('app');
 
-ReactDOM.render(<Layout />, app);
+ReactDOM.render(<Layout/>, app);

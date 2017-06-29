@@ -4,7 +4,7 @@ export default class Header extends React.Component {
     render() {
         return (
             <header>
-                currently empty
+                <h1>Title</h1>
             </header>
         );
     }

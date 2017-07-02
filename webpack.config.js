@@ -1,7 +1,8 @@
-var webpack = require('webpack');
-var path = require('path');
-var debug = process.env.NODE_ENV !== 'production';
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+const debug = process.env.NODE_ENV !== 'production';
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const extractCSS = new ExtractTextPlugin('./src/css/main.css');
 
 module.exports = {
     context: path.join(__dirname, 'src'),
@@ -19,8 +20,8 @@ module.exports = {
                 }
             },
             {
-                test: /\.scss$/,
-                loader: debug ? 'css-loader!sass-loader' : ExtractTextPlugin.extract('css-loader!sass-loader')
+                test: /\.(sass|scss)$/,
+                loader: debug ? 'css-loader!sass-loader' : extractCSS.extract('css-loader!sass-loader')
             }
         ]
     },
@@ -29,8 +30,9 @@ module.exports = {
         filename: 'client.min.js'
     },
     plugins: debug ? [] : [
-        new ExtractTextPlugin('/css/main.css', {
-            allChunks: true
+        new extractCSS({
+            filename: 'main.min.css',
+            allChunks: true,
         }),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),

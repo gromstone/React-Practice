@@ -31,7 +31,7 @@ module.exports = {
     },
     plugins: debug ? [] : [
         new extractCSS({
-            filename: 'main.min.css',
+            filename: 'css/main.min.css',
             allChunks: true,
         }),
         new webpack.optimize.DedupePlugin(),

@@ -1,0 +1,49 @@
+html {
+  box-sizing: border-box;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+  color: $brand-color;
+  text-decoration: none;
+
+  @include on-event {
+    color: $text-color;
+    text-decoration: underline;
+  }
+}
+
+//basic styles
+body {
+    background: cornsilk;
+}
+h1 {
+    color: $dark-grey ;
+    font-family: $font-stack;
+    font-size: 32px;
+}
+.border {
+    border: 1px solid $dark-grey;
+}
+div > div { 
+    @extend .border;//extend
+    border-color: #AAA;
+    @include border-radius(5px);
+    margin: 0 auto;
+    text-align: center;
+    width: 600px / 960px * 100%;// operators
+}

@@ -1,44 +1,57 @@
-const webpack = require('webpack');
 const path = require('path');
-const debug = process.env.NODE_ENV !== 'production';
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const extractCSS = new ExtractTextPlugin('./src/css/main.css');
+const glob = require('glob')
 
-module.exports = {
-    context: path.join(__dirname, 'src'),
-    devtool: debug ? 'inline-sourcemap' : false,
-    entry: './js/client.js',
-    module: {
-        loaders: [
-            {
-                test: /\.jsx?$/,
-                exclude: /(node_modules|bower_components)/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['react', 'es2016', 'stage-0'],
-                    plugins: ['react-html-attrs', 'transform-decorators-legacy', 'transform-class-properties'],
-                }
-            },
-            {
-                test: /\.(sass|scss)$/,
-                loader: debug ? 'css-loader!sass-loader' : extractCSS.extract('css-loader!sass-loader')
-            }
-        ]
+const HtmlWebpackPlugin = require('html-webpack-plugin'),
+    merge = require('webpack-merge'),
+    parts = require('./webpack.parts.js');
+
+const PATHS = {
+    app: path.join(__dirname, 'app'),
+    build: path.join(__dirname, 'build'),
+};
+
+const mainConfig = merge([
+    {
+        entry: { 
+            app: PATHS.app,
+        },
+        output :{
+            path: PATHS.build,
+            filename: 'js/[name].js',
+        },
+        plugins: [
+            new HtmlWebpackPlugin({
+                title: 'Webpack demo',
+            }),
+        ],
     },
-    output: {
-        path: __dirname + '/src/',
-        filename: 'client.min.js'
-    },
-    plugins: debug ? [] : [
-        new extractCSS({
-            filename: 'css/main.min.css',
-            allChunks: true,
-        }),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            mangle: false,
-            sourcemap: false
-        }),
-  ],
+    parts.loadJSX({ include: PATHS.app, exclude: /(node_modules|bower_components)/ }),
+    parts.lintJS({ include: PATHS.app }),
+]);
+
+const prodConfig = merge([
+    parts.extractCSS({
+        use: ['css-loader', parts.autoprefix(),'sass-loader']
+    }),
+    parts.purifyCSS({
+        paths: glob.sync(`${PATHS.app}/**/*.js`, { nodir: true }),
+    }),
+]);
+
+const devConfig = merge([
+    parts.devServer({
+        host: process.env.HOST,
+        port: process.env.PORT,
+    }),
+    parts.loadSCSS(),
+]);
+
+
+module.exports = (env) => {
+    console.log('env ', env);
+    
+    if (env === 'prod'){
+        return merge(mainConfig, prodConfig);
+    }
+    return merge(mainConfig, devConfig);
 };

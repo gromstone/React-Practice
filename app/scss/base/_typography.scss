@@ -1,4 +1,46 @@
 body {
-  color: $text-color;
-  font: normal 125% / 1.4 $text-font-stack;
+    color: $text-color;
+    font-family: $text-font-stack;
+    font-size: 14px;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+    color: $brand-color;
+    font-family: $text-font-stack;
+    font-size: 18px;
+    line-height: 1.5;
+    text-decoration: none;
+    
+    @include on-event {
+        color: $text-color;
+    }
+}
+
+h1 {
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+h2,
+
+h3 {
+    color: #083D8C;
+    margin: 0;
+    padding: 1em 0;
+}
+
+p {
+    margin: 0;
+    padding: 1em 0;
+}
+
+img {
+    border-style: none;
+    vertical-align: middle;
+    display: block;
 }

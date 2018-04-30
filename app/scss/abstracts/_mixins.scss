@@ -28,11 +28,46 @@
   }
 }
 
+/// BEM mixings
+/// Block Element
+/// @access public
+/// @param {String} $element - Element's name
+@mixin element($element) {
+    &__#{$element} {
+        @content;
+    }
+}
 
-//mixings
+/// Block Modifier
+/// @access public
+/// @param {String} $modifier - Modifier's name
+@mixin modifier($modifier) {
+    &--#{$modifier} {
+        @content;
+    }
+}
+
+
+/// Additional mixings
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
       -ms-border-radius: $radius;
           border-radius: $radius;
+}
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+    -khtml-opacity:$opacity; 
+    -moz-opacity:$opacity; 
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
 }

@@ -1,0 +1,108 @@
+{ 
+    "main": {
+        "sitename": "deviate design",
+        "brand": "deviate-design-logo.png",
+        "userinfo": {
+            "name": "David Rodriguez",
+            "title": "Front End Developer",
+            "email": "dave.jan@db8desin.com",
+
+        },
+        "experience": [
+            {
+                "data": {
+                    "companyID": "delhaize",
+                    "name": "Ahold Delhaize",
+                    "phone1": "1-888-234-5678",
+                    "email": "info@aquaexperts.com",
+                    "addressLine1": "1234 Some Street",
+                    "addressLine2": "",
+                    "city": "Salisbury",
+                    "state": "North Carolina",
+                    "country": "US",
+                    "zipcode": "28205",
+                    "skills": {
+                        "dev": ["HTML","CSS","JS","WCAG"],
+                        "des": ["Adobe CC", "Photoshop", "InDesign"],
+                        "other": ["QA testing",'WCAG Testing']
+                    },
+                    "taks": [
+                        "Installation Pro",
+                        "Residential Pro",
+                        "Service Pro"
+                    ]
+                }
+            }, {
+                "data": {
+                    "companyID": "bofa",
+                    "name": "Premium Pools & Spas of Charlotte",
+                    "phone1": "1-888-234-5678",
+                    "email": "info@aquaexperts.com",
+                    "addressLine1": "1234 Some Street",
+                    "addressLine2": "",
+                    "city": "Charlotte",
+                    "state": "North Carolina",
+                    "country": "US",
+                    "zipcode": "28205",
+                    "skills": {
+                        "dev": ["HTML","CSS","JS","WCAG"],
+                        "des": ["Adobe CC", "Photoshop", "InDesign"],
+                        "other": ["QA testing",'WCAG Testing']
+                    },
+                    "taks": [
+                        "Installation Pro",
+                        "Residential Pro",
+                        "Service Pro"
+                    ]
+                }
+            }, {
+                "data": {
+                    "companyID": "wells",
+                    "name": "Carolina Pool Specialists",
+                    "phone1": "1-877-987-6543",
+                    "email": "info@cps.com",
+                    "addressLine1": "1234 Some Street",
+                    "addressLine2": "",
+                    "city": "Charlotte",
+                    "state": "North Carolina",
+                    "country": "US",
+                    "zipcode": "28205",
+                    "skills": {
+                        "dev": ["HTML","CSS","JS","WCAG"],
+                        "des": ["Adobe CC", "Photoshop", "InDesign"],
+                        "other": ["QA testing",'WCAG Testing']
+                    },
+                    "certifications": [
+                        "Installation Pro",
+                        "Commercial Pro",
+                        "Residential Pro",
+                        "Service Pro"
+                    ]
+                }
+            }, {
+                "data": {
+                    "companyID": "db8",
+                    "name": "Pools'r'Us",
+                    "phone1": "1-888-346-4574",
+                    "email": "info@poolsrus.com",
+                    "addressLine1": "1234 Some Street",
+                    "addressLine2": "",
+                    "city": "Charlotte",
+                    "state": "North Carolina",
+                    "country": "US",
+                    "zipcode": "28205",
+                    "skills": {
+                        "dev": ["HTML","CSS","JS","WCAG"],
+                        "des": ["Adobe CC", "Photoshop", "InDesign"],
+                        "other": ["QA testing",'WCAG Testing']
+                    },
+                    "certifications": [
+                        "Installation Pro",
+                        "Commercial Pro",
+                        "Residential Pro"
+                    ]
+                }
+            }
+        ],
+    }
+}

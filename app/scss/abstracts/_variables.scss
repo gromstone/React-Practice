@@ -1,6 +1,5 @@
 //variables
 $font-stack : 'Helvetica', sans-serif;
-$dark-grey : #444;
 
 $brand-color : #2891CB;
 $text-color : #333;
@@ -35,16 +34,11 @@ $mid-grey: rgb(153, 153, 153) !default;
 $dark-grey: rgb(68, 68, 68) !default;
 
 
-/// Container's maximum width
-/// @type Length
-$max-width: 1180px !default;
-
-
 /// Breakpoints map
 /// @prop {String} keys - Keys are identifiers mapped to a given length
 /// @prop {Map} values - Values are actual breakpoints expressed in pixels
 $breakpoints: (
-  'small': 320px,
+  'small': 639px,
   'medium': 768px,
   'large': 1024px,
 ) !default;

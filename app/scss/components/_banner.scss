@@ -1,0 +1,21 @@
+.banner {
+    text-align: center;
+    font-weight: bolder;
+    
+    @media screen and (min-width:640px){
+        
+        @include modifier('welcome') {
+            min-height: 200px;
+        }
+        
+    }
+    
+    @media screen and (min-width:1024px){
+        
+        @include modifier('welcome') {
+            min-height: 400px;
+        }
+        
+    }
+    
+}

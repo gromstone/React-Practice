@@ -18,12 +18,15 @@
   'base/helpers';
 
 // 4. Layout-related sections
-//@import
+@import
+    'layout/grid';
 //  'layout/header',
 //  'layout/footer';
 
 // 5. Components
-//@import
+@import
+    'components/cover-card',
+    'components/banner';
 //  'components/button';
 
 // 6. Page-specific styles

@@ -1,0 +1,31 @@
+.cover-card {
+    border-radius: 2px;
+    box-shadow: 3px 4px 6px 1px rgba(30, 30, 30, .2);
+    padding: 10px;
+    
+    @include modifier('hero') {
+        min-height: 300px;
+    }
+    
+    @include modifier('white') {
+        background-color: #fff;
+        height: 100%;
+        width: 100%;
+        @include transition(width 2s ease, height 2s ease);
+        
+        @include on-event {
+            width: 105%;
+            height: 105%;
+        }
+    }
+    
+    @include modifier('grey') {
+        color: #FFF;
+        background-color: $mid-grey;
+    }
+    
+    @media screen and (max-width:639px){
+            margin: 30px 0;
+    }
+    
+}

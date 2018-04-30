@@ -21,7 +21,8 @@ const mainConfig = merge([
         },
         plugins: [
             new HtmlWebpackPlugin({
-                title: 'Webpack demo',
+                title: 'Deviate Design',
+                template: `${PATHS.app}/index.html`
             }),
         ],
     },
